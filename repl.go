@@ -10,18 +10,14 @@ import (
 	"strings"
 )
 
-type InPort struct {
+type Port struct {
 	number int
 	value  int
+	typeOf string
 }
 
-type OutPort struct {
-	number int
-	value  int
-}
-
-var InPorts []InPort
-var OutPorts []OutPort
+var InPorts []Port
+var OutPorts []Port
 
 func startRepl() {
 	scanner := bufio.NewScanner(os.Stdin)
@@ -35,9 +31,10 @@ func startRepl() {
 			}
 
 			for i := 0; i < number; i++ {
-				InPorts = append(InPorts, InPort{
+				InPorts = append(InPorts, Port{
 					number: i + 1,
 					value:  rand.Intn(2),
+					typeOf: "InPort",
 				})
 			}
 
@@ -52,9 +49,10 @@ func startRepl() {
 			}
 
 			for i := 0; i < number2; i++ {
-				OutPorts = append(OutPorts, OutPort{
+				OutPorts = append(OutPorts, Port{
 					number: i + 1,
 					value:  rand.Intn(2),
+					typeOf: "OutPort",
 				})
 			}
 			fmt.Printf("OUT портов: %d\n", len(OutPorts))
