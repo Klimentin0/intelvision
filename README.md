@@ -21,11 +21,11 @@ go run .
 ```
 set GOOS=windows
 set GOARCH=amd64
-go build -o intelvision.exe intelvision.go
+go build -o intelvision.exe .
 ```
 - если исользуем powershell
 ```
-go build -o intelvision.exe intelvision.go
+go build -o intelvision.exe .
 ```
 
 ## Краткое описание
