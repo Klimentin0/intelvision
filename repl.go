@@ -18,6 +18,7 @@ type Port[v any] struct {
 
 var InPorts []Port[int]
 var OutPorts []Port[int]
+var availablePorts [][]Port[int]
 
 func startRepl() {
 	scanner := bufio.NewScanner(os.Stdin)
@@ -57,6 +58,13 @@ func startRepl() {
 			}
 			fmt.Printf("OUT портов: %d\n", len(OutPorts))
 		}
+		// availablePorts только тут я наполняю, потому что ссылка(чем является слайс по определению)
+		// на лежащий под ними ряд(array), должна создаваться на новые наполненные уже слайсы in и out
+		//
+		availablePorts = [][]Port[int]{InPorts, OutPorts}
+		//testing
+		fmt.Printf("test slice %s", availablePorts[1][1].typeOf)
+		//testing
 
 		fmt.Print("Введите команду('read', 'write' иди 'exit')>>>")
 		scanner.Scan()
