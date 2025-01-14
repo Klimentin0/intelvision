@@ -63,7 +63,7 @@ func startRepl() {
 		//
 		availablePorts = [][]Port[int]{InPorts, OutPorts}
 		//testing
-		fmt.Printf("test slice %s", availablePorts[1][1].typeOf)
+		//fmt.Printf("test slice %s", availablePorts[1][1].typeOf)
 		//testing
 
 		fmt.Print("Введите команду('read', 'write' иди 'exit')>>>")
